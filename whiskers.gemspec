@@ -2,12 +2,12 @@ $:.push File.expand_path('../lib', __FILE__)
 require 'whiskers/version'
 
 Gem::Specification.new do |s|
-  s.add_runtime_dependency 'sass', '~> 3.4.22'
-  s.add_runtime_dependency 'bourbon', '~> 4.2.6'
-  s.add_runtime_dependency 'neat', '~> 1.7.4'
-  s.add_runtime_dependency 'bitters', '~> 1.3.1'
-  s.add_runtime_dependency 'thor', "~> 0.19.1'
-  s.name          = 'Whiskers'
+  s.add_runtime_dependency 'sass', '~> 3.4'
+  s.add_runtime_dependency 'bourbon', '~> 4.2'
+  s.add_runtime_dependency 'neat', '~> 1.7'
+  s.add_runtime_dependency 'bitters', '~> 1.2'
+  s.add_runtime_dependency 'thor', '~> 0.19'
+  s.name          = 'whiskers'
   s.platform      = Gem::Platform::RUBY
   s.require_paths = ['lib']
   s.version       = Whiskers::VERSION

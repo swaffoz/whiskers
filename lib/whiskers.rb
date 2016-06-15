@@ -1,3 +1,6 @@
+puts "NOW LOADING..."
+
+
 require 'whiskers/generator'
 
 whiskers_path = File.expand_path('../../core', __FILE__)

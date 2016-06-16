@@ -1,4 +1,7 @@
 require 'whiskers/version'
+require 'bourbon'
+require 'bitters'
+require 'neat'
 require 'fileutils'
 require 'thor'
 require 'pathname'
@@ -6,7 +9,6 @@ require 'open-uri'
 
 module Whiskers
   class Generator < Thor
-    templates = ['base', 'blog', 'store']
 
     map ['v', '-v', '--version'] => :version
     map ['n', '-n', '--new'] => :new
@@ -25,7 +27,7 @@ module Whiskers
         return
       end
       
-      template = options[:template].nil ? 'base' : options[:template]
+      template = options[:template].nil? ? 'base' : options[:template]
       
       if !templates.include? template
         puts "Template #{template} does not exist. Failed to install Whiskers."
@@ -58,6 +60,10 @@ module Whiskers
     end
 
     private
+    
+    def templates
+      @templates = ['base', 'blog', 'store']
+    end
 
     def install_template_in_directory(template, directory)
       make_install_directory directory
@@ -78,13 +84,12 @@ module Whiskers
     end
     
     def install_stylesheets_for_template_in_directory(template, directory)
-      install_path = File.join(directory, 'stylesheets')
-      FileUtils.cp_r(all_stylesheets_for_template(template), install_path)
+      FileUtils.cp_r(all_stylesheets_for_template(template), directory)
     end
 
     def install_scripts_for_template_in_directory(template, directory)
        install_path = File.join(directory, 'scripts')
-       FileUtils.cp_r(all_scripts_for_template(template), install_path)
+       FileUtils.cp_r(all_scripts_for_template(template), directory)
     end
 
     def install_bourbon_in_directory directory

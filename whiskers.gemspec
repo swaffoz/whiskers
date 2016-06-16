@@ -22,7 +22,6 @@ Gem::Specification.new do |s|
   s.summary       = 'A quick and tidy way to start a site with SASS/Coffeescript'
   s.authors       = ['Zane Swafford']
   s.email         = 'zane@otters.io'
-  s.files         = ['lib/whiskers.rb']
   s.homepage      = 'http://rubygems.org/gems/whiskers'
   s.license       = 'BSD'
 end

@@ -13,7 +13,7 @@ module Whiskers
     map ['v', '-v', '--version'] => :version
     map ['n', '-n', '--new'] => :new
     map ['w', '-w', '--watch'] => :watch
-    map ['l', '-l', '--list-templates'] => :list_templates
+    map ['l', '-l', '--list', '--list-templates'] => :list
 
     desc 'version', 'Show Whiskers version'
     def version
@@ -80,8 +80,8 @@ module Whiskers
       puts "\nCompilation Stopped."
     end
     
-    desc 'list-templates', 'List the templates available to Whiskers.'
-    def list_templates
+    desc 'list', 'List the templates available to Whiskers.'
+    def list
       puts "Templates available to Whiskers:"
       templates.map { |t| puts "\t- #{t}" }
       puts "\nCreate a new site with `whiskers new SITE TEMPLATE`\n"
@@ -105,6 +105,7 @@ module Whiskers
       install_bitters_in_directory directory
       
       install_jquery_in_directory directory
+      install_require_in_directory directory
       install_normalize_in_directory directory
     end
     

@@ -219,7 +219,8 @@ module Whiskers
     end
     
     def markup_files_for_template template
-      Dir["#{templates_directory}/*.html"]
+      template_directory = File.join(templates_directory, template)
+      Dir["#{template_directory}/*.html"]
     end
     
     def templates_directory

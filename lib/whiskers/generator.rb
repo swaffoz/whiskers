@@ -52,9 +52,9 @@ module Whiskers
       puts "New Whiskers site created in #{name}"
     end
     
-    desc 'watch', 'Watch a Whiskers directory and compile coffeescript and SASS files'
+    desc 'watch', 'Watch a Whiskers directory and compile CoffeeScript and SASS files'
     long_desc <<-LONGDESC
-      `whiskers watch` will listen and compile changes made to the coffeescript files
+      `whiskers watch` will listen and compile changes made to the CoffeeScript files
       (located in scripts/src) and SASS files (located in stylesheets).
       
       You must be in the directory for the site you want to watch for changes.
@@ -66,7 +66,7 @@ module Whiskers
       Compilation can be stopped by pressing the enter key.
     LONGDESC
     def watch
-      puts "Watching for coffeescript and SASS changes. Press enter to stop.\n\n"
+      puts "Watching for CoffeeScript and SASS changes. Press enter to stop.\n\n"
       
       coffee_pid = spawn("coffee --watch --output scripts/lib --compile scripts/src")
       sass_pid = spawn("sass --watch stylesheets/app.sass:stylesheets/app.css")

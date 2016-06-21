@@ -50,6 +50,7 @@ module Whiskers
       
       install_template_in_directory(selected_template, name)
       puts "New Whiskers site created in #{name}"
+      puts "\nRun `whiskers watch` from inside #{name}/ to get started"
     end
     
     desc 'watch', 'Watch a Whiskers directory and compile CoffeeScript and SASS files'
@@ -154,7 +155,7 @@ module Whiskers
       end
       g = Bitters::Generator.new([],{path: install_path})
       g.install
-      FileUtils.mv(File.join(install_path, 'base'), File.join(install_path, 'bitters'))
+      FileUtils.mv(File.join(install_path, 'base'), File.join(install_path, 'bitters'), force: true)
     end
     
     def install_normalize_in_directory directory

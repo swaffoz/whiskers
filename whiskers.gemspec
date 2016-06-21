@@ -15,13 +15,12 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split("\n")
   s.date          = '2016-06-09'
   s.description   = <<-DESC
-    Whiskers is a library for generating website templates with a few basic styles. 
-    Whiskers provides a basic directory structure for handling coffeescript and SASS.
-    Whiskers relies on Bourbon, Neat, & Refills from thoughtbot. 
+    Whiskers is a dandy little gem for quickly spinning up sites using SASS, CoffeeScript,
+     and Thoughtbot’s Bourbon.
   DESC
   s.summary       = 'A quick and tidy way to start a site with SASS/Coffeescript'
   s.authors       = ['Zane Swafford']
   s.email         = 'zane@otters.io'
-  s.homepage      = 'http://rubygems.org/gems/whiskers'
+  s.homepage      = 'https://github.com/zaneswafford/whiskers'
   s.license       = 'BSD'
 end

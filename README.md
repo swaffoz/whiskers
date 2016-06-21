@@ -1,4 +1,4 @@
-![Whiskers Logo](https://raw.githubusercontent.com/zaneswafford/whiskers/master/whiskers.png) Whiskers
+<img src="https://raw.githubusercontent.com/zaneswafford/whiskers/master/whiskers.png" height="100"> Whiskers
 ========
 
 Whiskers is a dandy little gem for quickly spinning up sites using [SASS](http://sass-lang.com), [CoffeeScript](http://coffeescript.org), and [Thoughtbot’s Bourbon](http://bourbon.io).

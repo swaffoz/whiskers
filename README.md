@@ -13,11 +13,11 @@ If you would like to use it, be my guest.
 ## What does it do?
 You can read the source for yourself if you’re so inclined. If you’re lazy, like me, here is a flyover:
 
-	1. Make a directory structure for organizing your scripts and stylesheets.
-	2. Download jQuery, require.js, normalize.css
-	3. Download Bourbon, Neat, Bitters, and some Refills.
-	4. Copy over a template to get started on a project
-	5. Provide an easy way to live compile CoffeeScript and Sass
+1. Make a directory structure for organizing your scripts and stylesheets.
+2. Download jQuery, require.js, normalize.css
+3. Download Bourbon, Neat, Bitters, and some Refills.
+4. Copy over a template to get started on a project
+5. Provide an easy way to live compile CoffeeScript and Sass
 
 
 ## Why the Hell would I want that?

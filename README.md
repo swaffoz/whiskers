@@ -28,7 +28,7 @@ I apologize, that was curt. You’re a pleasant person and you do a good job.
 ## How do install it?
 You can run:
 ```
-	$ gem install whiskers
+$ gem install whiskers
 ```
 
 💥 Boom, you’re done. Though you’ll want to [install CoffeeScript](http://coffeescript.org/#installation) for it to work.
@@ -37,24 +37,24 @@ You can run:
 If you want to get up and running, you can create a new Whiskers site, open the directory, and tell Whiskers to watch for changes like so:
 
 ```
-	$ whiskers new nameOfMySite
-	$ cd nameOfMySite
-	$ whiskers watch
+$ whiskers new nameOfMySite
+$ cd nameOfMySite
+$ whiskers watch
 ```
 
 If you want to create a site with a template beyond the base template you could run:
 ```
-	$ whiskers new nameOfMySite nameOfMyTemplate
+$ whiskers new nameOfMySite nameOfMyTemplate
 ```
 
 You can see the templates available using:
 ```
-	$ whiskers list
+$ whiskers list
 ```
 
 You can also ask for help using:
 ```
-	$ whiskers help
+$ whiskers help
 ```
 
 ## What do all these files and folders do?

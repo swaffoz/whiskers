@@ -3,13 +3,15 @@
 
 Whiskers is a dandy little gem for quickly spinning up sites using [SASS](http://sass-lang.com), [CoffeeScript](http://coffeescript.org), and [Thoughtbot’s Bourbon](http://bourbon.io).
 
-There is no fancy magic here. Just a Ruby script, that copies some web pages around, wrapped up in a gem you can call from the command line.
+There’s no fancy magic here. Just a Ruby script that copies some web pages around. 
+All wrapped up in a gem you can call from the command line.
 
-This dingus automates a lot of tedious command line work I was doing previously for throwing together quick sites using SASS and CoffeeScript.
+This dingus automates a lot of tedious command line work I was doing previously.
 If you would like to use it, be my guest.
 
 ## What does it do?
 You can read the source for yourself if you’re so inclined. If you’re lazy, like me, here is a flyover:
+
 	1. Make a directory structure for organizing your scripts and stylesheets.
 	2. Download jQuery, require.js, normalize.css
 	3. Download Bourbon, Neat, Bitters, and some Refills.

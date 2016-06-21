@@ -1,4 +1,5 @@
-<img src="https://raw.githubusercontent.com/zaneswafford/whiskers/master/whiskers.png" height="100">  Whiskers
+<img src="https://raw.githubusercontent.com/zaneswafford/whiskers/master/whiskers.png" height="100">  
+Whiskers
 ========
 
 Whiskers is a dandy little gem for quickly spinning up sites using [SASS](http://sass-lang.com), [CoffeeScript](http://coffeescript.org), and [Thoughtbot’s Bourbon](http://bourbon.io).
@@ -22,7 +23,7 @@ You can read the source for yourself if you’re so inclined. If you’re lazy, 
 ## Why the Hell would I want that?
 You probably don’t. This is a tool for *me*. **Not everything is about you**. 
 
-I apologize, that was curt. You’re a pleasant person and you do a good job. You don’t need this tool.
+I apologize, that was curt. You’re a pleasant person and you do a good job.
 
 ## How do install it?
 You can run:

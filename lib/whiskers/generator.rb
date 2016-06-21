@@ -13,32 +13,58 @@ module Whiskers
     map ['v', '-v', '--version'] => :version
     map ['n', '-n', '--new'] => :new
     map ['w', '-w', '--watch'] => :watch
+    map ['l', '-l', '--list-templates'] => :list_templates
 
     desc 'version', 'Show Whiskers version'
     def version
       puts "Whiskers #{Whiskers::VERSION}"
     end
     
-    desc 'new NAME','Create new Whiskers site named NAME'
-    method_options :template => :string
-    def new(name)
+    desc 'new SITE','Create new Whiskers site named SITE'
+    long_desc <<-LONGDESC
+      `whiskers new SITE` will create a new Whiskers site named site. You must specify a 
+      name for the site. All Whiskers files will be placed in a directory of the name 
+      provided. 
+ 
+      You can optionally specify a second parameter, which will set the template for the 
+      new Whiskers site.
+ 
+      > $ whiskers new SITE blog
+      
+      If no template is specified, the base template will be used.
+      You can see a list of templates available by using `whiskers --list-templates`
+    LONGDESC
+    def new(name, template=nil)
       if name.nil? || name.empty?
         puts 'No name specified for new site. Failed to install Whiskers.'
         return
       end
       
-      template = options[:template].nil? ? 'base' : options[:template]
+      selected_template = template.nil? ? 'base' : template
       
-      if !templates.include? template
+      if !templates.include? selected_template
         puts "Template #{template} does not exist. Failed to install Whiskers."
+        puts "Try `whiskers --list-templates` to see the templates that are available."
         return
       end
       
-      install_template_in_directory(template, name)
+      install_template_in_directory(selected_template, name)
       puts "New Whiskers site created in #{name}"
     end
     
-    desc 'watch', 'Watch a Whiskers directory and live compile coffeescript and SASS files'
+    desc 'watch', 'Watch a Whiskers directory and compile coffeescript and SASS files'
+    long_desc <<-LONGDESC
+      `whiskers watch` will listen and compile changes made to the coffeescript files
+      (located in scripts/src) and SASS files (located in stylesheets).
+      
+      You must be in the directory for the site you want to watch for changes.
+      
+      It is equivalant to running the following two commands:
+        - `coffee --watch --output scripts/lib --compile scripts/src`
+        - `sass --watch stylesheets/app.sass:stylesheets/app.css`
+      
+      Compilation can be stopped by pressing the enter key.
+    LONGDESC
     def watch
       puts "Watching for coffeescript and SASS changes. Press enter to stop.\n\n"
       
@@ -53,11 +79,18 @@ module Whiskers
       
       puts "\nCompilation Stopped."
     end
+    
+    desc 'list-templates', 'List the templates available to Whiskers.'
+    def list_templates
+      puts "Templates available to Whiskers:"
+      templates.map { |t| puts "\t- #{t}" }
+      puts "\nCreate a new site with `whiskers new SITE TEMPLATE`\n"
+    end
 
     private
     
     def templates
-      @templates = ['base', 'blog', 'store']
+      @templates = Dir.entries(templates_directory).select { |f| !File.directory? f }.collect { |p| p.to_s } # ['base', 'blog', 'store']
     end
 
     def install_template_in_directory(template, directory)
@@ -177,15 +210,19 @@ module Whiskers
     end
 
     def stylesheets_directory_for_template template
-      File.join(top_level_directory, 'core', 'whiskers', template, 'stylesheets')
+      File.join(templates_directory, template, 'stylesheets')
     end
 
     def scripts_directory_for_template template
-      File.join(top_level_directory, 'core', 'whiskers', template, 'scripts')
+      File.join(templates_directory, template, 'scripts')
     end
     
     def markup_files_for_template template
-      Dir["#{File.join(top_level_directory, 'core', 'whiskers', template)}/*.html"]
+      Dir["#{templates_directory}/*.html"]
+    end
+    
+    def templates_directory
+      File.join(top_level_directory, 'core', 'whiskers')
     end
 
     def top_level_directory
